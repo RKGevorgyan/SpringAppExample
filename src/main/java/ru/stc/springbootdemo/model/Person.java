@@ -1,11 +1,15 @@
 package ru.stc.springbootdemo.model;
 
+import lombok.Data;
+
 import javax.persistence.*;
+import javax.validation.constraints.*;
 import java.util.Objects;
 // (1(2,3)) -> (2) -> (3) eager
 // (1(2,3)) -> getField() lazy
 
 
+@Data
 @Entity
 @Table(name = "persons")
 public class Person {
@@ -20,16 +24,6 @@ public class Person {
     private String lastName;
 
     private Integer age;
-
-    public Person(String name, String lastName, Integer age) {
-        this.name = name;
-        this.lastName = lastName;
-        this.age = age;
-    }
-
-    public Person() {
-        age = 10;
-    }
 
     public Long getId() {
         return id;
